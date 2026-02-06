@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <!-- STEP 1 -->
+    <section class="card" id="step1">
+      <div class="card-title">
+        <span class="icon">👤</span>
+        <span>Оқырманды тіркеу</span>
+      </div>
+
+      <div class="form">
+        <input class="input" id="readerName" type="text" placeholder="Аты-жөні">
+        <input class="input" id="readerEmail" type="email" placeholder="Email почтасы">
+        <input class="input" id="readerPhone" type="text" placeholder="Телефон нөмірі">
+
+        <button class="btn btn-primary" type="button" onclick="saveReader()">
+          Келесі қадам →
+        </button>
+
+        <div class="helper">Деректер серверге сақталады</div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="card" id="step2" style="display:none;">
+      <div class="card-title">
+        <span class="icon">📚</span>
+        <span>Кітап алу</span>
+      </div>
+
+      <div class="form">
+        <input class="input" id="bookTitle" type="text" placeholder="Кітап атауы">
+        <input class="input" id="bookAuthor" type="text" placeholder="Авторы">
+        <input class="input" id="bookId" type="text" placeholder="Кітап ID-i">
+
+        <div class="row2">
+          <div>
+            <div class="label">Алу күні:</div>
+            <input class="input" id="loanDate" type="date">
+          </div>
+          <div>
+            <div class="label">Қайтару күні:</div>
+            <input class="input" id="returnDate" type="date">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" type="button" onclick="goBack()">← Артқа</button>
+          <button class="btn btn-primary" type="button" onclick="saveLoan()">Сақтау және Аяқтау ✓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIST -->
+    <section class="card">
+      <div class="card-title">
+        <span class="icon">📋</span>
+        <span>Барлық жазбалар</span>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table" id="loanTable">
+          <thead>
+            <tr>
+              <th>Оқырман</th>
+              <th>Кітап (ID)</th>
+              <th>Мерзімі</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="button" onclick="openStep1()">
+          + Жаңа жазба қосу
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
