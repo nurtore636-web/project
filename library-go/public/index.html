@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Library — Login</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="index">
+  <div class="container">
+    <div class="topbar">
+      <h1>📚 Library System</h1>
+      <span class="badge">Go + JSON DB</span>
+    </div>
+
+    <div class="card">
+      <div id="bootstrapInfo" class="msg"></div>
+
+      <div class="row">
+        <div class="col">
+          <h2>Login</h2>
+          <label>Email</label>
+          <input id="l_email" placeholder="admin@mail.com" />
+          <label>Password</label>
+          <input id="l_pass" type="password" placeholder="••••••••" />
+          <div style="margin-top:12px">
+            <button id="loginBtn">Login</button>
+          </div>
+        </div>
+
+        <div class="col">
+          <h2>Register</h2>
+          <label>Full name</label>
+          <input id="r_name" placeholder="Aruzhan S." />
+          <label>Phone</label>
+          <input id="r_phone" placeholder="+77001234567" />
+          <label>Email</label>
+          <input id="r_email" placeholder="aru@mail.com" />
+          <label>Password</label>
+          <input id="r_pass" type="password" placeholder="••••••••" />
+
+          <div id="roleRow" style="display:none">
+            <label>Role (bootstrap only)</label>
+            <select id="r_role">
+              <option value="admin">admin</option>
+              <option value="reader">reader</option>
+            </select>
+            <div class="small">Бірінші админ жоқ болса ғана role таңдауға болады.</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <button id="regBtn" class="secondary">Register</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

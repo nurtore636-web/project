@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Library</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="admin">
+  <div class="container">
+    <div class="topbar">
+      <div>
+        <h1>🛠 Admin Dashboard</h1>
+        <div class="small" id="who"></div>
+      </div>
+      <button id="logout" class="secondary">Logout</button>
+    </div>
+
+    <div class="card">
+      <div class="tabs">
+        <div class="tab active" id="tab_books">Books</div>
+        <div class="tab" id="tab_readers">Readers</div>
+        <div class="tab" id="tab_loans">Loans</div>
+      </div>
+
+      <div id="amsg" class="msg"></div>
+
+     
+      <div id="pane_books">
+        <div class="row">
+          <div class="col card">
+            <h2>Add book</h2>
+            <label>Book code (unique)</label>
+            <input id="b_code" placeholder="BK-001" />
+            <label>Title</label>
+            <input id="b_title" placeholder="Abai Joly" />
+            <label>Author</label>
+            <input id="b_author" placeholder="M. Auezov" />
+            <label>Price (KZT)</label>
+            <input id="b_price" type="number" placeholder="5000" />
+            <label>Total quantity</label>
+            <input id="b_total" type="number" placeholder="5" />
+            <div style="margin-top:12px"><button id="addBookBtn">Add</button></div>
+          </div>
+
+          <div class="col card">
+            <h2>Books list</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th><th>Title</th><th>Author</th><th>Price</th><th>Stock</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="booksTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="editBox" class="card" style="display:none;margin-top:16px">
+          <h2>Edit book</h2>
+          <input id="eb_id" type="hidden" />
+          <div class="row">
+            <div class="col">
+              <label>Title</label>
+              <input id="eb_title" />
+            </div>
+            <div class="col">
+              <label>Author</label>
+              <input id="eb_author" />
+            </div>
+            <div class="col">
+              <label>Price</label>
+              <input id="eb_price" type="number" />
+            </div>
+            <div class="col">
+              <label>Total qty</label>
+              <input id="eb_total" type="number" />
+            </div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <button id="saveEdit">Save</button>
+            <button id="closeEdit" class="secondary">Close</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="pane_readers" style="display:none">
+        <h2>Readers</h2>
+        <table>
+          <thead>
+            <tr><th>Full name</th><th>Phone</th><th>Email</th><th>Role</th><th>Created</th></tr>
+          </thead>
+          <tbody id="readersTable"></tbody>
+        </table>
+      </div>
+
+    
+      <div id="pane_loans" style="display:none">
+        <div class="row">
+          <div class="col card">
+            <h2>Borrow book</h2>
+            <label>Reader</label>
+            <select id="borrowReader"></select>
+            <label>Book</label>
+            <select id="borrowBook"></select>
+            <label>Due date (optional)</label>
+            <input id="borrowDue" placeholder="2026-02-20" />
+            <div style="margin-top:12px"><button id="borrowBtn">Borrow</button></div>
+          </div>
+
+          <div class="col card">
+            <h2>Loans</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th><th>Reader</th><th>Book</th><th>Status</th>
+                  <th>Loan</th><th>Due</th><th>Return</th><th>Fine</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="loansTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
